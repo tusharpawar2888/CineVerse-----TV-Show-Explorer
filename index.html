@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b13">
+  <title>CineVerse — Discover Movies</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">C</span>
+      CineVerse<span class="brand-dot">.</span>
+    </a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#movies">Explore Movies</a>
+    </nav>
+    <span class="api-status"><span></span> Movie database</span>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">YOUR NEXT MOVIE NIGHT STARTS HERE</p>
+        <h1>Stories worth<br> <span>staying up for.</span></h1>
+        <p class="hero-text">
+          Explore trending films, discover hidden gems, and find your next favorite movie.
+        </p>
+
+        <form id="searchForm" class="search-form">
+          <span class="search-symbol">⌕</span>
+          <input id="searchInput" type="search"
+                 placeholder="Search movies, titles..." autocomplete="off">
+          <button type="submit">Search <span>↗</span></button>
+        </form>
+        <p class="search-hint">Search thousands of movies from around the world.</p>
+      </div>
+      <div class="hero-decoration" aria-hidden="true">CINE</div>
+    </section>
+
+    <section class="movie-section" id="movies">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">HANDPICKED FOR YOU</p>
+          <h2 id="sectionTitle">Trending This Week</h2>
+        </div>
+        <button id="trendingBtn" class="text-button">Explore trending ↗</button>
+      </div>
+
+      <div id="genreFilters" class="genre-filters"></div>
+
+      <p id="status" class="status" role="status" aria-live="polite">
+        Loading movies...
+      </p>
+
+      <div id="movieGrid" class="movie-grid"></div>
+
+      <button id="loadMoreBtn" class="load-more" hidden>
+        Load more movies ↓
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#">
+      <span class="brand-icon">C</span>
+      CineVerse<span class="brand-dot">.</span>
+    </a>
+    <p>Discover your next favorite film.</p>
+    <p class="footer-credit">Movie data provided by TMDB.</p>
+  </footer>
+
+  <div id="movieModal" class="modal" hidden>
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <article class="modal-card" role="dialog"
+             aria-modal="true" aria-labelledby="modalTitle">
+      <button id="closeModal" class="close-modal"
+              aria-label="Close movie details">×</button>
+      <div id="modalContent"></div>
+    </article>
+  </div>
+</body>
+</html>
